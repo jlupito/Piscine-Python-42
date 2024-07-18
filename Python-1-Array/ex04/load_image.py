@@ -20,7 +20,7 @@ def ft_load(path: str) -> Image.Image:
         image = image.convert('RGB')
 
     pixels = np.array(image)
-    print(f"The shape of image is: {pixels.shape}")
-    print(pixels)
+    # print(f"The shape of image is: {pixels.shape}")
+    # print(pixels)
     #ca va imprimer sous la forme (hauteur, largeur, nb de canaux)
     return pixels
