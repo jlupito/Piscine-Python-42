@@ -31,13 +31,13 @@ def calculate_quart(list):
     half = int(length / 2)
 
     if length % 2 == 0:
-        Q1 = calculate_median(list[:half])
+        Q1 = calculate_median(list[:half - 1])
         Q3 = calculate_median(list[half:])
     else:
-        Q1 = calculate_median(list[:half])
-        Q3 = calculate_median(list[half + 1:])
+        Q1 = calculate_median(list[:half + 1])
+        Q3 = calculate_median(list[half:])
 
-    return Q1, Q3
+    return [float(Q1), float(Q3)]
 
 def calculate_std_var(list, flag):
     """
