@@ -42,19 +42,22 @@ NESTED_MORSE = {
 
 def main():
 
-    s = sys.argv[1]
-    if len(sys.argv) != 2 or not isinstance(s, str):
-        print("AssertionError: the arguments are bad")
-        return
-    for char in s:
-        if not char.isspace() and not char.isalnum():
-            print("AssertionError: the arguments are bad")
-            return
+    try:
+        s = sys.argv[1]
+        if len(sys.argv) != 2 or not isinstance(s, str):
+            raise AssertionError("The arguments are bad")
+        for char in s:
+            if not char.isspace() and not char.isalnum():
+                raise AssertionError("The arguments are bad")
 
-    morse = ""
-    for char in s:
-        morse += NESTED_MORSE[char.upper()]
-    print(morse)
+        morse = ""
+        for char in s:
+            morse += NESTED_MORSE[char.upper()]
+        print(morse)
+
+    except AssertionError as e:
+        print(e)
+
 
 if __name__ == "__main__":
     main()

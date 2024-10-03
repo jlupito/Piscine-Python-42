@@ -64,7 +64,8 @@ def ft_grey(array) -> np.array:
     
     Transform the colors of the image received into grayscale levels.
     """
-
+    #oon convertie le tableau en image
     image = Image.fromarray(array)
+    # convert pour convertir l image et 'L' pour les niveaux de gris (chaque pixel aura une seule valeur d'intensité lumineuse)
     grey = image.convert("L")
     grey.show()

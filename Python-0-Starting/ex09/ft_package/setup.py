@@ -5,7 +5,7 @@ setup(
     version="0.0.1",
     author="jarthaud",
     author_email="jarthaud@student.42.fr",
-    description="My first package",
+    description="A pakage for counting occurences",
     license="MIT",
     url="https://github.com/jlupito/ft_package",
     packages=find_packages(),
