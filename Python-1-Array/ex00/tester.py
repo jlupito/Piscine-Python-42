@@ -6,3 +6,17 @@ bmi = give_bmi(height, weight)
 
 print(bmi, type(bmi))
 print(apply_limit(bmi, 26))
+
+# height = [1.71, 1.55]
+# weight = [65.3, 50.4, 100.7]
+# bmi = give_bmi(height, weight)
+
+# print(bmi, type(bmi))
+# print(apply_limit(bmi, 26))
+
+# height = [1.71, 0, 1.82]
+# weight = [65.3, 50.4, 100.7]
+# bmi = give_bmi(height, weight)
+
+# print(bmi, type(bmi))
+# print(apply_limit(bmi, 26))

@@ -38,5 +38,5 @@ def ft_tqdm(lst: range) -> None:
             yield item
         print()
 
-    except TypeError as e:
-        print(e)
+    except Exception as e:
+        print(type(e).__name__ + ":", e)

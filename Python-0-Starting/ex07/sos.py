@@ -1,6 +1,8 @@
 import sys
 
-NESTED_MORSE = {
+
+def main():
+    NESTED_MORSE = {
     " ": "/ ",
     "A": ".- ",
     "B": "-... ",
@@ -39,9 +41,6 @@ NESTED_MORSE = {
     "9": "----. ",
     "0": "----- "}
 
-
-def main():
-
     try:
         s = sys.argv[1]
         if len(sys.argv) != 2 or not isinstance(s, str):
@@ -53,10 +52,14 @@ def main():
         morse = ""
         for char in s:
             morse += NESTED_MORSE[char.upper()]
+        if morse[-1].isspace():
+            morse = morse[:-1]
+
         print(morse)
 
-    except AssertionError as e:
-        print(e)
+    except Exception as e:
+        print(type(e).__name__ + ":", e)
+        return
 
 
 if __name__ == "__main__":
