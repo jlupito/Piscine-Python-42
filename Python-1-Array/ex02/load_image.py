@@ -3,7 +3,7 @@ from os import access, R_OK
 import numpy as np
 
 
-def ft_load(path: str) -> np.array: 
+def ft_load(path: str) -> np.array:
     """
     Loads an JPG or JPEG image, prints its shape, and its pixels
     content in RGB format.
@@ -25,15 +25,15 @@ def ft_load(path: str) -> np.array:
             else:
                 print(f"The file '{path}' is not a valid image file.")
             return None
-        
+
         if image.format not in ["JPEG", "JPG"]:
             raise ValueError("Image must be in JPG or JPEG format.")
-        
+
         if image.mode != 'RGB':
             image = image.convert('RGB')
         pixels = np.array(image)
         print(f"The shape of image is: {pixels.shape}")
-        #imprime sous la forme (hauteur, largeur, nb de canaux)
+        # imprime sous la forme (hauteur, largeur, nb de canaux)
         return pixels
 
     except Exception as e:

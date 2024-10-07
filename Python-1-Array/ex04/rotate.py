@@ -1,53 +1,69 @@
 from load_image import ft_load
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 
-def zoom_gray(path: str, left: int, right: int, up: int, low: int) -> np.array:
+
+def zoom_gray(img, x_start, x_end, y_start, y_end) -> np.array:
     """
+    Load an image, zoom in on a specific region and
+    convert it to grayscale.
 
-    zoom_gray(path, left, right, up, low) -> np.array
-    Load an image, zoom in on a specific region and convert it to grayscale.
-    
+    Args:
+        - img (array): the image to zoom in and gray.
+        - x_start (int): x axis starting point (left).
+        - x_end (int): x axis ending point (right).
+        - y_start (int): y axis starting point (up).
+        - y_end (int): y axis ending point (low).
+    Returns:
+        A numpy array countaining the zoomed and grayed image.
+    """
+    img_zoomed = img[y_start:y_end, x_start:x_end]
+    img_img = Image.fromarray(img_zoomed)
+    img_grayed = img_img.convert("L")
+
+    new_img = np.array(img_grayed)
+    new_shape = np.expand_dims(new_img, axis=-1)
+    print(f"New shape after slicing: {new_shape.shape} or {new_img.shape} ")
+    print(new_shape)
+
+    return new_img
+
+
+def rotate(image: np.array) -> np.array:
+    """
+    Rotates an image by a 90-degree angle.
+
+    Args:
+        - img (array): the image to rotate.
+    Returns:
+        A numpy array countaining the rotated image.
     """
     try:
-        img_pixels = ft_load(path)
-        img_loaded = Image.fromarray(img_pixels)
-        crop_area = (left, up, right, low)  # (gauche, haut, droite, bas)
-        img_cropped = img_loaded.crop(crop_area)
-        img_gray = img_cropped.convert("L")
-        
-        new_img = np.array(img_gray)
-        new_shape = np.expand_dims(new_img, axis=-1)
-        print(f"The shape of the image is: {new_shape.shape} or {new_img.shape}")
-        print(new_shape)
-        
-        return new_img
+        transposed = np.transpose(image)
+        print(f"New shape after Transpose: {transposed.shape}")
+        print(transposed)
+        return transposed
 
     except Exception as e:
-        print(f"Error: {e}")
+        print(type(e).__name__ + ":", e)
+        return
 
-def rotate(image: np.array, angle: int) -> np.array:
-    """
-    rotate(image, angle) -> np.array
-
-    Rotate an image by a specific angle.
-    """
-    try:
-        img = Image.fromarray(image)
-        img_rotated = img.rotate(angle)
-        rotated_shape = np.array(img_rotated)
-        print(f"New shape after Transpose: {rotated_shape.shape}")
-        print(rotated_shape)
-        return rotated_shape
-    
-    except Exception as e:
-        print(f"Error: {e}")
 
 def main():
+    img_pixels = ft_load("animal.jpeg")
+    if img_pixels is None:
+        return
+    try:
+        zoomed = zoom_gray(img_pixels, 400, 800, 200, 600)
+        rotated = rotate(zoomed)
+        plt.imshow(rotated, cmap='gray')
+        plt.show()
 
-    image = zoom_gray("animal.jpeg", 100, 500, 100, 500)
-    image = rotate(image, 90)
-    Image.fromarray(image).show()
+    except Exception as e:
+        print(type(e).__name__ + ":", e)
+        return
+
 
 if __name__ == "__main__":
     main()
