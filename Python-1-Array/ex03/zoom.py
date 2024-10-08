@@ -24,6 +24,7 @@ def zoom_gray(img, x_start, x_end, y_start, y_end) -> np.array:
     img_grayed = img_img.convert("L")
 
     new_img = np.array(img_grayed)
+    # ajouter une nouvelle dimension a la positon -1 (derniere position)
     new_shape = np.expand_dims(new_img, axis=-1)
     print(f"New shape after slicing: {new_shape.shape} or {new_img.shape} ")
     print(new_shape)

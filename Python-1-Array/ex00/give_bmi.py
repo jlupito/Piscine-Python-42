@@ -30,7 +30,7 @@ def give_bmi(
         weight_array = np.array(weight)
         bmi = weight_array / (height_array ** 2)
 
-        return list(bmi)
+        return bmi.tolist()
 
     except Exception as e:
         print(type(e).__name__ + ":", e)
