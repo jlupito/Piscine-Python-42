@@ -1,4 +1,3 @@
-
 def calculate_mean(list):
     """
     calculates the mean of a list of numbers.
@@ -6,6 +5,7 @@ def calculate_mean(list):
     if len(list) == 0:
         return None
     return sum(list) / len(list)
+
 
 def calculate_median(list):
     """
@@ -15,10 +15,11 @@ def calculate_median(list):
         return None
     list.sort()
     length = len(list)
-    if  length % 2 == 0:
+    if length % 2 == 0:
         return (list[int(length/2) - 1] + list[int(length/2)]) / 2
     else:
         return list[int(length/2)]
+
 
 def calculate_quart(list):
     """
@@ -39,13 +40,14 @@ def calculate_quart(list):
 
     return [float(Q1), float(Q3)]
 
+
 def calculate_std_var(list, flag):
     """
     calculates the Standard Deviation of a list of numbers.
     """
-    # La variance est la moyenne des carrés des différences entre chaque élément et la moyenne.
-    # l'écart-type est la racine carrée de la variance.
-    
+    # variance = moyenne des carrés des différences entre chaque élément
+    # et la moyenne.
+    # écart-type = la racine carrée de la variance.
     if len(list) == 0:
         return None
     mean = calculate_mean(list)
@@ -56,12 +58,12 @@ def calculate_std_var(list, flag):
     else:
         return var
 
+
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """
-    ft_statistics(*args: Any, **kwargs: Any) -> None
     takes in *args a quantity of unknown number and make the Mean, Median,
-    Quartile (25% and 75%), Standard Deviation and Variance according to the **kwargs
-    ask.
+    Quartile (25% and 75%), Standard Deviation and Variance according 
+    to the **kwargs ask.
     """
 
     list = []
