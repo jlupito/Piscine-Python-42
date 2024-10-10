@@ -62,7 +62,7 @@ def calculate_std_var(list, flag):
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """
     takes in *args a quantity of unknown number and make the Mean, Median,
-    Quartile (25% and 75%), Standard Deviation and Variance according 
+    Quartile (25% and 75%), Standard Deviation and Variance according
     to the **kwargs ask.
     """
 

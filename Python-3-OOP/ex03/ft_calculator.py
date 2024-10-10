@@ -1,3 +1,4 @@
+# dunder methods: double underscores methods
 class calculator:
     """
     A calculator class that is able to do calculations

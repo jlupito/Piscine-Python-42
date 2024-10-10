@@ -3,10 +3,10 @@ from new_student import Student
 
 def main():
     try:
-        student = Student(name = "Edward", surname = "agle")
+        student = Student(name="Edward", surname="agle")
         print(student)
 
-        student2 = Student(name = "Edward", surname = "agle", id = "toto")
+        student2 = Student(name="Edward", surname="agle", id="toto")
         print(student2)
 
     except Exception as e:
